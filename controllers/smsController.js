@@ -4,6 +4,8 @@ export function createSMS (req, res) {
     if (!bank || !phone_number || !amount || !details) 
         return res.status(400).json({ message: 'All fields are required' });
 
+    const token = process.env.TOKEN;
+
     const message = `Pase ${amount} ${phone_number} ${details}`;
 
     return res.status(200).json({
