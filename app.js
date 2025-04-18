@@ -1,9 +1,6 @@
 import express from 'express';
-import cors from 'cors';
 const app = express();
 import smsRoutes from './routes/smsRoutes.js';
-
-app.use(cors());
 
 app.use(express.json());
 app.use("/api/sms",smsRoutes);
