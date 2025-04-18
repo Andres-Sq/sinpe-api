@@ -4,9 +4,6 @@ export function createSMS (req, res) {
     if (!bank || !phone_number || !amount || !details) 
         return res.status(400).json({ message: 'All fields are required' });
 
-    // Validate phone number format
-    //const value = phone_number.replace(/-/g, '');
-
     // Validate SMS data
     const message = `Pase ${amount} ${phone_number} ${details}`;
 
