@@ -3,9 +3,7 @@ import cors from 'cors';
 const app = express();
 import smsRoutes from './routes/smsRoutes.js';
 
-app.use(cors({
-    origin: 'https://witty-beach-00d53e41e.6.azurestaticapps.net/',
-  }));
+app.use(cors());
 
 app.use(express.json());
 app.use("/api/sms",smsRoutes);
