@@ -3,7 +3,8 @@ import cors from 'cors';
 const app = express();
 import smsRoutes from './routes/smsRoutes.js';
 
-app.use(cors());
+//app.use(cors());
+app.use(cors({ origin: 'https://sinpe-api-production.up.railway.app' }));
 
 app.use(express.json());
 app.use("/api/sms",smsRoutes);
