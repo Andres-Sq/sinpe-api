@@ -4,7 +4,20 @@ const app = express();
 import smsRoutes from './routes/smsRoutes.js';
 
 //app.use(cors());
-app.use(cors({ origin: 'https://sinpe-api-production.up.railway.app' }));
+const allowedOrigins = [
+    'https://sinpeapp.pages.dev', // Frontend en producción
+    'http://127.0.0.1:5500',       // Desarrollo local (opcional)
+  ];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido por CORS'));
+    }
+  }
+}));
 
 app.use(express.json());
 app.use("/api/sms",smsRoutes);
