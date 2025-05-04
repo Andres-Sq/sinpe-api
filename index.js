@@ -22,6 +22,8 @@ app.use(cors({
 app.use(express.json());
 app.use("/api/sms",smsRoutes);
 
+const configRoutes = require('./routes/config');
+app.use('/api/config', configRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
