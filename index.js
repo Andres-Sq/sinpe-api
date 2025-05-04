@@ -7,7 +7,6 @@ import configRoutes from './routes/config.js';
 //app.use(cors());
 const allowedOrigins = [
     'https://sinpeapp.pages.dev', // Frontend en producción
-    'http://127.0.0.1:5500',       // Desarrollo local (opcional)
   ];
 
 app.use(cors({
