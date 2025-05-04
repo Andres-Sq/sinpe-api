@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 const app = express();
 import smsRoutes from './routes/smsRoutes.js';
+import configRoutes from './routes/config.js';
 
 //app.use(cors());
 const allowedOrigins = [
@@ -21,8 +22,6 @@ app.use(cors({
 
 app.use(express.json());
 app.use("/api/sms",smsRoutes);
-//Redirect
-const configRoutes = require('./routes/config.js');
 app.use('/api/config', configRoutes);
 
 const PORT = process.env.PORT || 3000;

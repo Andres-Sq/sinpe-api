@@ -1,16 +1,16 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const client = require('../configs/clientes.json');
+import client from '../configs/client.json' assert { type: 'json' };
 
 router.get('/:slug', (req, res) => {
   const slug = req.params.slug;
-  const client = client[slug];
+  const clientData  = client[slug];
 
-  if (!client) {
+  if (!clientData) {
     return res.status(404).json({ error: 'Cliente no encontrado' });
   }
 
-  res.json(client); // Devuelve los datos sin token
+  res.json(clientData); // Devuelve los datos sin token
 });
 
-module.exports = router;
+export default router;
