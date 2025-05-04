@@ -22,7 +22,7 @@ app.use(cors({
 app.use(express.json());
 app.use("/api/sms",smsRoutes);
 //Redirect
-const configRoutes = require('./routes/config');
+const configRoutes = require('./routes/config.js');
 app.use('/api/config', configRoutes);
 
 const PORT = process.env.PORT || 3000;
