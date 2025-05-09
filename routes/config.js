@@ -10,7 +10,7 @@ router.get('/:slug', (req, res) => {
     return res.status(404).json({ error: 'Cliente no encontrado' });
   }
 
-  res.json(clientData); // Devuelve los datos sin token
+  res.json(clientData);
 });
 
 export default router;

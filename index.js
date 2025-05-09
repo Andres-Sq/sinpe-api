@@ -3,11 +3,22 @@ import cors from 'cors';
 const app = express();
 import smsRoutes from './routes/smsRoutes.js';
 import configRoutes from './routes/config.js';
+import helmet from 'helmet';
 
-//app.use(cors());
 const allowedOrigins = [
-    'https://sinpeapp.pages.dev', // Frontend en producción
+    'https://sinpeapp.pages.dev',
   ];
+
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+  contentSecurityPolicy: false,
+  referrerPolicy: { policy: 'no-referrer' },
+  hsts: {
+    maxAge: 31536000,
+    includeSubDomains: true,
+    preload: true
+  }
+}));
 
 app.use(cors({
   origin: function (origin, callback) {
