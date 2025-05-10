@@ -6,8 +6,9 @@ import configRoutes from './routes/config.js';
 import helmet from 'helmet';
 
 const allowedOrigins = [
-    'https://sinpeapp.pages.dev',
-  ];
+  'https://sinpeapp.pages.dev',
+  'https://www.sinpeqr.com',
+];
 
 app.use(helmet({
   crossOriginResourcePolicy: false,
